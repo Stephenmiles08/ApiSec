@@ -1,6 +1,6 @@
-This contains the list of websites i use to learn.\n
-https://pentesterlab.com/\n
-https://tryhackme.com/\n
-https://university.apisec.ai/\n
-https://ctfchallenge.com/\n
-https://overthewire.org/wargames/natas/\n
+This contains the list of websites i use to learn.
+https://pentesterlab.com/
+https://tryhackme.com/
+https://university.apisec.ai/
+https://ctfchallenge.com/
+https://overthewire.org/wargames/natas/
