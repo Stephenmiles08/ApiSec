@@ -4,3 +4,4 @@ https://tryhackme.com/
 https://university.apisec.ai/
 https://ctfchallenge.com/
 https://overthewire.org/wargames/natas/
+https://picoctf.org/

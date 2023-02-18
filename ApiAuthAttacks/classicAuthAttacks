@@ -1,0 +1,23 @@
+Brief introduction into the mind of restfulAPI
+Classic authentication attacks include techniques that have been around for a while like brute forcing and password spraying. Both of these attacks are different methods of guessing username and password combinations. These are vulnerabilities that are inherent anytime basic authentication is deployed. To authenticate using this basic authentication, the consumer issues a request containing a username and password, then the provider performs a check to make sure that the combination matches records stored in a database. As we know, RESTful APIs do not maintain a state, so if the API were to leverage basic authentication across all endpoints, then a username and password would have to be issued every time. Instead, the provider may leverage basic authentication once using an authentication portal, then upon providing the correct credentials, a token would be issued to be used in subsequent requests. The classic authentication attacks in this section include password brute-force attacks with base64 encoding, password reset brute-force, and password spraying.
+
+Password bruteForce attacks
+One of the more straightforward methods for gaining access to an API is performing a brute-force attack on an API endpoint, using a payload which is often in JSON format, and the authentication values may require base64 encoding. One of the best ways to fine-tune your brute-force attack is to generate passwords specific to your target. To do this, you could leverage the information revealed in an excessive data exposure vulnerability
+
+***************Note*********************
+For more information about creating targeted password lists, check out the Mentalist app (https://github.com/sc0tfree/mentalist) or the Common User Passwords Profiler (https://github.com/Mebus/cupp).
+
+Some API providers may respond with an HTTP 415 Unsupported Media Type error code if you don’t include the Content -Type:application/json header when sending JSON data in the request body
+****************************************
+
+Password spraying.
+
+Many security controls could prevent you from successfully brute-forcing an API’s authentication. A technique called password spraying can evade many of these controls by combining a long list of users with a short list of targeted passwords. Let’s say you know that an API authentication process has a lockout policy in place and will only allow 10 login attempts. You could craft a list of the nine most likely passwords (one less password than the limit) and use these to attempt to log in to many user accounts. When you’re password spraying, large and outdated wordlists like rockyou.txt won’t work. There are way too many unlikely passwords in such a file to have any success. Instead, craft a short list of likely passwords, taking into account the constraints of the API provider’s password policy, which you can discover during reconnaissance. Most password policies likely require a minimum character length, upper- and lowercase letters, and perhaps a number or special character. Use passwords that are simple enough to guess but complex enough to meet basic password requirements (generally a minimum of eight characters, a symbol, upper- and lowercase letters, and a number). The first type includes obvious passwords like QWER!@#$, Password1!, and the formula Season+Year+Symbol (such as Winter2021!, Spring2021?, Fall2021!, and Autumn2021?). The second type includes more advanced passwords that relate directly to the target, often including a capitalized letter, a number, a detail about the organization, and a symbol. Here is a short password-spraying list I might generate if I were attacking an endpoint for Twitter employees: Summer2022! Spring2022! QWER!@#$ March212006! July152006! Twitter@2022 JPD1976!
+
+*******************Note**************************
+The real key to password spraying is to maximize your user list. The more usernames you include, the higher your odds of compromising a user account with a bad password. Build a user list during your reconnaissance efforts or by discovering excessive data exposure vulnerabilities
+
+Excessive data exposure.
+
+grep -oe "[a-zA-Z0-9._]\+@[a-zA-Z]\+.[a-zA-Z]\+" grep email addresses.
+**************************************************
