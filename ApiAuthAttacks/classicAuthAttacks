@@ -20,4 +20,6 @@ The real key to password spraying is to maximize your user list. The more userna
 Excessive data exposure.
 
 grep -oe "[a-zA-Z0-9._]\+@[a-zA-Z]\+.[a-zA-Z]\+" grep email addresses.
+
+use cluster bomb in burpsuite for password spray.
 **************************************************
